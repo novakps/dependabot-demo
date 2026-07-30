@@ -6,7 +6,18 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: npm
+    commit-message:
+      prefix: "DEPENDABOT-"
+      prefix-development: "DEPENDABOT-dev"
     directory: "/javascript"
+    pull-request-branch-name:
+       template: "{prefix}_{package_manager}_{dependency}_{version}"
+       separator: "_"
+       word-separator: "-"
+       branch-name-case: "lowercase"
+       max-length: 54 
+    labels:
+      - "dependabot"
     schedule:
       interval: "weekly"
   - package-ecosystem: bundler
